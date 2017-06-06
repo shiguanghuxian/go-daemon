@@ -1,0 +1,17 @@
+# go-daemon 守护程序
+debug: true
+interval: 1s # 这里需配置带单位间隔时间
+file_not_exist: true # 此值为true则pid文件不存在启动程序，值为false则忽略
+cmd_out: true # 是否输出可执行文件的控制台输出到文件
+
+# 需要守护的pid文件路径,pid 文件只能包含一个pid值
+application:
+  - path:  # pid 路径
+    cmd:  # 当检查到pid不存在时执行的命令，可执行文件路径
+    exec:  # 要执行的脚本路径 如果此值不为空，则只执行此脚本不执行cmd
+    args:  # 参数，脚本
+
+  - path:  # pid 路径
+    cmd:  # 当检查到pid不存在时执行的命令，可执行文件路径
+    exec:  # 要执行的脚本路径 如果此值不为空，则只执行此脚本不执行cmd
+    args:  # 参数，脚本
