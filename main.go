@@ -89,10 +89,6 @@ func main() {
 				return
 			}
 		}
-		err = s.Run()
-		if err != nil {
-			logger.Error(err)
-		}
 		err = service.Control(s, os.Args[1])
 		if err != nil {
 			log.Fatal(err)
