@@ -8,22 +8,24 @@ import (
 
 /* 处理配置文件 */
 
+// CFG 根配置
 type CFG struct {
-	Debug        bool           `yaml:"debug" json:"debug"`
-	Interval     string         `yaml:"interval" json:"interval"`
-	FileNotExist bool           `yaml:"file_not_exist" json:"file_not_exist"`
-	CmdOut       bool           `yaml:"cmd_out" json:"cmd_out"`
-	Apps         []*Application `yaml:"application" json:"application"`
+	Debug        bool           `yaml:"debug"`
+	Interval     string         `yaml:"interval"`
+	FileNotExist bool           `yaml:"file_not_exist"`
+	CmdOut       bool           `yaml:"cmd_out"`
+	Apps         []*Application `yaml:"application"`
 }
 
+// Application 每个应用的配置
 type Application struct {
-	Path string `yaml:"path" json:"path"`
-	Cmd  string `yaml:"cmd" json:"cmd"`
-	Exec string `yaml:"exec" json:"exec"`
-	Args string `yaml:"args" json:"args"`
+	PidPath  string `yaml:"pid_path"` // pid 文件路径
+	WorkPath string `yaml:"workpath"` // 工作目录
+	// Cmd      string `yaml:"cmd"`      // 要执行的命令
+	// Args     string `yaml:"args"`     // 命令参数
 }
 
-// NewServerConfig 初始化一个配置文件对象
+// NewCFG 初始化一个配置文件对象
 func NewCFG(path string) (config *CFG, err error) {
 	if path == "" {
 		path = GetRootDir() + "/config/cfg.yaml"

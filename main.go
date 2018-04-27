@@ -88,12 +88,17 @@ func main() {
 				log.Println("配置文件读取错误", err)
 				return
 			}
+		} else {
+			err = service.Control(s, os.Args[1])
+			if err != nil {
+				log.Fatal(err)
+			}
+			return
 		}
-		err = service.Control(s, os.Args[1])
-		if err != nil {
-			log.Fatal(err)
-		}
-		return
+		// err = s.Run()
+		// if err != nil {
+		// 	logger.Error(err)
+		// }
 	}
 	logger, err = s.Logger(nil)
 	if err != nil {
