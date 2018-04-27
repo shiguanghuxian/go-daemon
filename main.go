@@ -7,7 +7,7 @@ import (
 	"runtime"
 	"time"
 
-	"53it.net/go-daemon/godaemon"
+	"git.53it.net/go-daemon/godaemon"
 	"github.com/kardianos/service"
 )
 
